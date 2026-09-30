@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploit AIO - Gateway</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="bg-lights">
+    <div class="light-orb light-orb-1"></div>
+    <div class="light-orb light-orb-2"></div>
+    <div class="light-orb light-orb-3"></div>
+  </div>
+
+  <!-- Subtle Cyber Grid -->
+  <div class="grid-overlay"></div>
+
+  <!-- Particle / Ambient Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header-box">
+      <div class="hub-badge">
+        <span class="badge-dot"></span>
+        <span>All-In-One Gateway</span>
+      </div>
+      <h1 class="main-title">Exploit AIO</h1>
+      <p class="sub-title">Wähle deine Plattform</p>
+      <div id="detected-device" class="detected-device">
+        <span>⚡</span> <span id="detected-text"></span>
+      </div>
+    </header>
+
+    <!-- Platform Selection Cards -->
+    <main class="cards-container">
+      <!-- PS4 Button -->
+      <a href="PS4/index.html" class="platform-card ps4" id="btn-ps4" tabindex="1" aria-label="PlayStation 4 Exploit Seite aufrufen">
+        <div class="recommended-badge" id="badge-ps4">Aktiv</div>
+        <div class="card-inner">
+          <div class="card-glow-bg"></div>
+          
+          <div class="icon-wrapper">
+            <!-- Modern Console / Gamepad SVG Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M7 6h10a5 5 0 0 1 5 5v5a3 3 0 0 1-3 3 3 3 0 0 1-2.82-2H7.82A3 3 0 0 1 5 19a3 3 0 0 1-3-3v-5a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v5a1 1 0 0 0 1 1 1 1 0 0 0 1-1V13a1 1 0 0 1 2 0v3h8v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 1 1 1 1 0 0 0 1-1v-5a3 3 0 0 0-3-3H7zm1 2h2v1H9v2H8v-2H7v-1h1v-2h1v2zm9 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-2 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+          </div>
+
+          <span class="card-type-tag">Console Hub</span>
+          <div class="platform-name">PS4</div>
+          <p class="platform-desc">Jailbreak, Firmware & WebKit Exploits für PlayStation® 4</p>
+          
+          <div class="launch-btn">
+            <span>Öffnen</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- PS5 Button -->
+      <a href="PS5/index.html" class="platform-card ps5" id="btn-ps5" tabindex="2" aria-label="PlayStation 5 Exploit Seite aufrufen">
+        <div class="recommended-badge" id="badge-ps5">Aktiv</div>
+        <div class="card-inner">
+          <div class="card-glow-bg"></div>
+          
+          <div class="icon-wrapper">
+            <!-- Modern PS5 Next-Gen SVG Icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+
+          <span class="card-type-tag">Next-Gen Hub</span>
+          <div class="platform-name">PS5</div>
+          <p class="platform-desc">Relapse, Kernel & WebKit Exploits für PlayStation® 5</p>
+          
+          <div class="launch-btn">
+            <span>Öffnen</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </main>
+
+    <!-- PlayStation Symbol Accents -->
+    <div class="shapes-decoration">
+      <span class="shape-triangle">▲</span>
+      <span class="shape-circle">●</span>
+      <span class="shape-cross">✕</span>
+      <span class="shape-square">■</span>
+    </div>
+  </div>
+
+  <!-- Bottom Right Copyright -->
+  <div class="footer-copyright">
+    Copyright by zKinqJustin
+  </div>
+
+  <!-- Particle Background & Console Auto-Detection Script -->
+  <script>
+    // Console Device Detection
+    (function detectDevice() {
+      const ua = navigator.userAgent;
+      const devBox = document.getElementById('detected-device');
+      const devText = document.getElementById('detected-text');
+      const badgePs4 = document.getElementById('badge-ps4');
+      const badgePs5 = document.getElementById('badge-ps5');
+      const btnPs4 = document.getElementById('btn-ps4');
+      const btnPs5 = document.getElementById('btn-ps5');
+
+      if (/PlayStation\s+4/i.test(ua)) {
+        devBox.style.display = 'inline-flex';
+        devText.textContent = 'PlayStation 4 erkannt';
+        badgePs4.style.display = 'block';
+        badgePs4.textContent = 'Erkannt';
+        btnPs4.focus();
+      } else if (/PlayStation\s+5/i.test(ua)) {
+        devBox.style.display = 'inline-flex';
+        devText.textContent = 'PlayStation 5 erkannt';
+        badgePs5.style.display = 'block';
+        badgePs5.textContent = 'Erkannt';
+        btnPs5.focus();
+      }
+    })();
+
+    // Lightweight Ambient Floating Particles (Shapes & Dots)
+    (function initCanvas() {
+      const canvas = document.getElementById('ambient-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const symbols = ['▲', '●', '✕', '■'];
+      const colors = ['rgba(0, 242, 254, 0.25)', 'rgba(121, 40, 202, 0.25)', 'rgba(0, 112, 209, 0.25)', 'rgba(255, 255, 255, 0.15)'];
+      const particles = [];
+      const count = Math.min(30, Math.floor(window.innerWidth / 40));
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          size: 10 + Math.random() * 12,
+          char: symbols[Math.floor(Math.random() * symbols.length)],
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: -0.2 - Math.random() * 0.5,
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.02
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.rotSpeed;
+
+          if (p.y < -30) {
+            p.y = h + 20;
+            p.x = Math.random() * w;
+          }
+          if (p.x < -30) p.x = w + 20;
+          if (p.x > w + 30) p.x = -20;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.font = `${p.size}px monospace`;
+          ctx.fillStyle = p.color;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(p.char, 0, 0);
+          ctx.restore();
+        }
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
